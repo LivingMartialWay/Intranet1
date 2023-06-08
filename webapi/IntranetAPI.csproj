@@ -19,6 +19,10 @@
     <ProjectReference Include="..\..\IntranetLibrary\IntranetLibrary.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 
 
 </Project>
