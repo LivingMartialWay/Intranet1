@@ -1,0 +1,3 @@
+﻿
+
+X)	Add " builder.Services.AddSingleton<INewAppData, NewAppData>(); "
