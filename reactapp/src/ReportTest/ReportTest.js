@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useMemo} from 'react';
-import { useCollection } from '@cloudscape-design/collection-hooks';
+import "@cloudscape-design/global-styles/index.css"
 import Table from "@cloudscape-design/components/table";
 import Box from "@cloudscape-design/components/box";
 import Button from "@cloudscape-design/components/button";
@@ -21,7 +21,7 @@ export default () => {
 
     useEffect(
         ()=>{
-          fetch('https://localhost:7098/api/Todos/')
+            fetch('https://localhost:7182/api/ReportTest')
            .then(response=> response.json())
            .then(responseTodos => {
                console.log(responseTodos)

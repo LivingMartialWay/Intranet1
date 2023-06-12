@@ -1,18 +1,19 @@
 using IntranetAPI.StartupConfig;
 
-var builder = WebApplication.CreateBuilder(args);
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServices();
 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,
-                       policy =>
-                       {
-                           policy.WithOrigins("http://localhost:3000",
-                                               "http://www.contoso.com");
-                       });
+                      policy =>
+                      {
+                          policy.WithOrigins("https://localhost:3000",
+                                              "http://www.contoso.com");
+                      });
 });
 
 // Add services to the container.
@@ -33,6 +34,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+
 app.UseAuthorization();
 
 app.MapControllers();
@@ -40,5 +42,6 @@ app.MapControllers();
 app.UseCors(MyAllowSpecificOrigins);
 
 app.MapHealthChecks("/health").AllowAnonymous();
+
 
 app.Run();
