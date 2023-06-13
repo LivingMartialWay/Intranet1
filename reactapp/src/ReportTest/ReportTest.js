@@ -1,84 +1,81 @@
-import React, {useEffect, useState, useMemo} from 'react';
+import React, { useEffect, useState } from 'react';
+import { useCollection } from '@cloudscape-design/collection-hooks';
+import {
+    Table,
+    Box,
+    Button,
+    CollectionPreferences,
+    Header,
+    Pagination,
+    TextFilter,
+    SpaceBetween,
+    ButtonDropdown,
+} from "@cloudscape-design/components";
+import { columnDefinitions, getMatchesCountText, paginationLabels, collectionPreferencesProps } from './ReportTestTableConfig';
 import "@cloudscape-design/global-styles/index.css"
-import Table from "@cloudscape-design/components/table";
-import Box from "@cloudscape-design/components/box";
-import Button from "@cloudscape-design/components/button";
-import TextFilter from "@cloudscape-design/components/text-filter";
-import Header from "@cloudscape-design/components/header";
-import Pagination from "@cloudscape-design/components/pagination";
-import CollectionPreferences from "@cloudscape-design/components/collection-preferences";
 
+function EmptyState({ title, subtitle, action }) {
+    return (
+        <Box textAlign="center" color="inherit">
+            <Box variant="strong" textAlign="center" color="inherit">
+                {title}
+            </Box>
+            <Box variant="p" padding={{ bottom: 's' }} color="inherit">
+                {subtitle}
+            </Box>
+            {action}
+        </Box>
+    );
+}  
 
+export default function CollectionHooksTable() {
+    const [preferences, setPreferences] = useState({ pageSize: 10, visibleContent: ['RecNo', 'deliveryType', 'deliveredWhen'] });
 
-
-export default () => {
-  const [
-    selectedItems,
-    setSelectedItems
-  ] = useState([]);
-
-  const [todos, setTodos] = useState([]);
+    const [todos, setTodos] = useState([]);
 
     useEffect(
-        ()=>{
+        () => {
             fetch('https://localhost:7182/api/ReportTest')
-           .then(response=> response.json())
-           .then(responseTodos => {
-               console.log(responseTodos)
-               setTodos(responseTodos)
-          });  
-        },[]);
+                .then(response => response.json())
+                .then(responseTodos => {
+                    console.log(responseTodos)
+                    setTodos(responseTodos)
+                });
+        }, []);
 
-    const tableColumns = useMemo(
-    ()=>[
-        {
-          id: "recNo",
-          header: "RecNo",
-          cell: e => e.recNo,
-          sortingField: "recNo",
-          isRowHeader: true
-        },
-        {
-          id: "deliveryType",
-          header: "deliveryType",
-          cell: e => e.deliveryType,
-          sortingField: "alt"
-        },
-        { id: "deliveredWhen", header: "deliveredWhen", cell: e => e.deliveredWhen },
-        { id: "deliveredBy", header: "deliveredBy", cell: e => e.deliveredBy },
-        { id: "businessName", header: "businessName", cell: e => e.businessName },
-        { id: "deliveredTo", header: "deliveredTo", cell: e => e.deliveredTo },
-        { id: "itemType", header: "itemType", cell: e => e.itemType },
-        { id: "checkNo", header: "checkNo", cell: e => e.checkNo },
-        { id: "recievedBy", header: "recievedBy", cell: e => e.recievedBy },
-        { id: "processedBy", header: "processedBy", cell: e => e.processedBy },
-        { id: "processedDate", header: "processedDate", cell: e => e.processedDate }
-      ],[]
+    const { items, actions, filteredItemsCount, collectionProps, filterProps, paginationProps } = useCollection(
+        todos,
+    {
+      filtering: {
+        empty: (
+          <EmptyState
+            title="No instances"
+            subtitle="No instances to display."
+            action={<Button>Create instance</Button>}
+          />
+        ),
+        noMatch: (
+          <EmptyState
+            title="No matches"
+            subtitle="We can’t find a match."
+            action={<Button onClick={() => actions.setFiltering('')}>Clear filter</Button>}
+          />
+        ),
+      },
+      pagination: { pageSize: preferences.pageSize },
+      sorting: {},
+      selection: {},
+    }
     );
-
+    const { selectedItems } = collectionProps;
 
   return (
-    <Table
-      onSelectionChange={({ detail }) =>
-        setSelectedItems(detail.selectedItems)
-      }
+      <Table
+      {...collectionProps}
       selectedItems={selectedItems}
-
-      columnDefinitions={tableColumns}
-      columnDisplay={[
-        { id: "recNo", visible: false },
-        { id: "deliveryType", visible: true },
-        { id: "deliveredWhen", visible: true },
-        { id: "deliveredBy", visible: true },
-        { id: "businessName", visible: true },
-        { id: "deliveredTo", visible: true },
-        { id: "itemType", visible: true },
-        { id: "checkNo", visible: true },
-        { id: "recievedBy", visible: true },
-        { id: "processedBy", visible: true },
-        { id: "processedDate", visible: true }
-      ]}
-      items={todos}
+      columnDefinitions={columnDefinitions}
+      visibleColumns={preferences.visibleContent}
+      items={items}
       loadingText="Loading resources"
       selectionType="multi"
       trackBy="recNo"
@@ -96,134 +93,77 @@ export default () => {
         </Box>
       }
       filter={
-        <TextFilter
-          filteringPlaceholder="Find resources"
-          filteringText=""
+          <TextFilter
+          {...filterProps}
+          countText={getMatchesCountText(filteredItemsCount)}
         />
       }
-      header={
+       header={
         <Header
           counter={
             selectedItems.length
               ? "(" + selectedItems.length + "/"+todos.length+")"
               : "("+todos.length+")"
           }
+          actions={
+            <SpaceBetween
+              direction="horizontal"
+              size="xs"
+            >
+              <ButtonDropdown
+                items={[
+                  {
+                    text: "Deactivate",
+                    id: "rm",
+                    disabled: false
+                  },
+                  {
+                    text: "Activate",
+                    id: "mv",
+                    disabled: false
+                  },
+                  {
+                    text: "Status 3",
+                    id: "rn",
+                    disabled: false
+                  },
+                  {
+                    text: "View details",
+                    id: "rm",
+                    disabled: false
+                  },
+                  {
+                    text: "Edit",
+                    id: "mv",
+                    disabled: false
+                  },
+                  {
+                    text: "Delete",
+                    id: "rn",
+                    disabled: false
+                  }
+                ]}
+              >
+                Actions
+              </ButtonDropdown>
+              <Button>Secondary button</Button>
+              <Button variant="primary">
+                Create resource
+              </Button>
+            </SpaceBetween>
+          }
         >
-          Table with common features
-        </Header>
+          Table with action buttons
+       </Header>
       }
-      pagination={
-        <Pagination
-          currentPageIndex={1}
-          pagesCount={2}
-          ariaLabels={{
-            nextPageLabel: "Next page",
-            previousPageLabel: "Previous page",
-            pageLabel: pageNumber =>
-              `Page ${pageNumber} of all pages`
-          }}
-        />
-      }
-      preferences={
+     pagination={<Pagination {...paginationProps} ariaLabels={paginationLabels} />}
+     preferences={
         <CollectionPreferences
-          title="Preferences"
-          confirmLabel="Confirm"
-          cancelLabel="Cancel"
-          preferences={{
-            pageSize: 10,
-            contentDisplay: [
-              { id: "variable", visible: true },
-              { id: "value", visible: true },
-              { id: "type", visible: true },
-              { id: "description", visible: true }
-            ]
-          }}
-          pageSizePreference={{
-            title: "Page size",
-            options: [
-              { value: 10, label: "10 resources" },
-              { value: 20, label: "20 resources" }
-            ]
-          }}
-          wrapLinesPreference={{
-            label: "Wrap lines",
-            description:
-              "Select to see all the text and wrap the lines"
-          }}
-          stripedRowsPreference={{
-            label: "Striped rows",
-            description:
-              "Select to add alternating shaded rows"
-          }}
-          contentDensityPreference={{
-            label: "Compact mode",
-            description:
-              "Select to display content in a denser, more compact mode"
-          }}
-          contentDisplayPreference={{
-            title: "Column preferences",
-            description:
-              "Customize the columns visibility and order.",
-            liveAnnouncementDndStarted: (
-              position,
-              total
-            ) =>
-              `Picked up item at position ${position} of ${total}`,
-            liveAnnouncementDndDiscarded:
-              "Reordering canceled",
-            liveAnnouncementDndItemReordered: (
-              initialPosition,
-              currentPosition,
-              total
-            ) =>
-              initialPosition === currentPosition
-                ? `Moving item back to position ${currentPosition} of ${total}`
-                : `Moving item to position ${currentPosition} of ${total}`,
-            liveAnnouncementDndItemCommitted: (
-              initialPosition,
-              finalPosition,
-              total
-            ) =>
-              initialPosition === finalPosition
-                ? `Item moved back to its original position ${initialPosition} of ${total}`
-                : `Item moved from position ${initialPosition} to position ${finalPosition} of ${total}`,
-            dragHandleAriaDescription:
-              "Use Space or Enter to activate drag for an item, then use the arrow keys to move the item's position. To complete the position move, use Space or Enter, or to discard the move, use Escape.",
-            dragHandleAriaLabel: "Drag handle",
-            options: [
-              {
-                id: "variable",
-                label: "Variable name",
-                alwaysVisible: true
-              },
-              { id: "value", label: "Text value" },
-              { id: "type", label: "Type" },
-              { id: "description", label: "Description" }
-            ]
-          }}
-          stickyColumnsPreference={{
-            firstColumns: {
-              title: "Stick first column(s)",
-              description:
-                "Keep the first column(s) visible while horizontally scrolling the table content.",
-              options: [
-                { label: "None", value: 0 },
-                { label: "First column", value: 1 },
-                { label: "First two columns", value: 2 }
-              ]
-            },
-            lastColumns: {
-              title: "Stick last column",
-              description:
-                "Keep the last column visible while horizontally scrolling the table content.",
-              options: [
-                { label: "None", value: 0 },
-                { label: "Last column", value: 1 }
-              ]
-            }
-          }}
+          {...collectionPreferencesProps}
+          preferences={preferences}
+          onConfirm={({ detail }) => setPreferences(detail)}
         />
-      }
+      } 
     />
   );
 }
