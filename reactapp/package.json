@@ -17,17 +17,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "set HTTPS=true&&react-scripts start",
+    "start": "set HTTPS=true&&react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prestart": "node aspnetcore-https && node aspnetcore-react"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -42,7 +36,6 @@
     ]
   },
   "devDependencies": {
-    "eslint-config-react-app": "^7.0.1",
     "jest-editor-support": "^31.0.1"
   }
 }
