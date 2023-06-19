@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { createRoot } from 'react-dom/client';
 
-
 import {
     AppLayout,
     BreadcrumbGroup,
@@ -14,21 +13,20 @@ import {
     SideNavigation
 } from "@cloudscape-design/components";
 
-import TopNavigation from "./TopNavigation/TopNavigation";
-import ReportTest from "./ReportTest/ReportTest";
-import admin from "./Admin/admin";
+import TopNavigation from "../TopNavigation/TopNavigation";
+import ReportTest from '../ReportTest/ReportTest';
 
 import "@cloudscape-design/global-styles/index.css"
-import './App.css';
+
 
 
 
 const navItems = [
     {
         type: 'section',
-        text: 'Manage',
+        text: 'BIG FUCK',
         items: [
-            { type: 'link', text: 'Pages', href: './admin' },
+            { type: 'link', text: 'Pages', href: '#/pages' },
             { type: 'link', text: 'Users', href: '#/users' },
         ],
     },
@@ -49,14 +47,14 @@ const navItems = [
 const breadcrumbs = [
     {
         text: 'Home',
-        href: '/',
+        href: '#',
     },
 ];
 
 
 const Content = () => {
     return (
-        <div></div>
+        <ReportTest />
     );
 };
 
@@ -64,7 +62,7 @@ const Content = () => {
 
 
 
-function App() {
+function Admin() {
     return (
         <div className="App">
             <TopNavigation />
@@ -75,14 +73,12 @@ function App() {
                 navigation={
                     <TopNavigation />,
                     <SideNavigation activeHref="#/pages" items={navItems} />
-                    }
+                }
                 breadcrumbs={<BreadcrumbGroup items={breadcrumbs} expandAriaLabel="Show path" ariaLabel="Breadcrumbs" />}
                 contentType="table"
                 content={<Content />}
             />
-                
+
         </div>
     );
 }
-
-export default App;

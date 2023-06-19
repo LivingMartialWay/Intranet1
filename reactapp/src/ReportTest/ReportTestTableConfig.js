@@ -38,7 +38,7 @@ export const columnDefinitions = [
         cell: e => e.deliveredWhen,
         sortingField: "deliveredWhen",
     },
-    { id: "deliveredBy", header: "deliveredBy", cell: e => e.deliveredBy },
+    { id: "deliveredBy", header: "deliveredBy", cell: e => e.deliveredBy, sortingField: "deliveredBy" },
     { id: "businessName", header: "businessName", cell: e => e.businessName },
     { id: "deliveredTo", header: "deliveredTo", cell: e => e.deliveredTo },
     { id: "itemType", header: "itemType", cell: e => e.itemType },
