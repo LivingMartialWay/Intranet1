@@ -1,13 +1,12 @@
 import * as React from "react";
 import TopNavigation from "@cloudscape-design/components/top-navigation";
 import Link from "@cloudscape-design/components/link";
-import admin from "../Admin/admin";
 
 export default () => {
     return (
         <TopNavigation
             identity={{
-                href: "#",
+                href: "/",
                 title: 'WDVCB',
                 logo: {
                     src:
@@ -19,14 +18,14 @@ export default () => {
                 {
                     type: "button",
                     text: "Admin",
-                    href: "#/admin",
+                    href: "/admin",
                     external: false,
                     externalIconAriaLabel: ""
                 },
                 {
                     type: "button",
                     text: "Accounting",
-                    href: "https://example.com/",
+                    href: "/accounting",
                     external: false,
                     externalIconAriaLabel: ""
                 },

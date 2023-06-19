@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { createRoot } from 'react-dom/client';
 
-
+import { Route, Routes } from "react-router-dom"
+ 
 import {
     AppLayout,
     BreadcrumbGroup,
@@ -16,71 +17,24 @@ import {
 
 import TopNavigation from "./TopNavigation/TopNavigation";
 import ReportTest from "./ReportTest/ReportTest";
-import admin from "./Admin/admin";
+
 
 import "@cloudscape-design/global-styles/index.css"
 import './App.css';
-
-
-
-const navItems = [
-    {
-        type: 'section',
-        text: 'Manage',
-        items: [
-            { type: 'link', text: 'Pages', href: './admin' },
-            { type: 'link', text: 'Users', href: '#/users' },
-        ],
-    },
-    {
-        type: 'section',
-        text: 'Set up',
-        items: [
-            { type: 'link', text: 'Database', href: '#/database' },
-            { type: 'link', text: 'Authentication', href: '#/authentication' },
-            { type: 'link', text: 'Analytics', href: '#/analytics' },
-            { type: 'link', text: 'Predictions', href: '#/predictions' },
-            { type: 'link', text: 'Interactions', href: '#/interactions' },
-            { type: 'link', text: 'Notifications', href: '#/notifications' },
-        ],
-    },
-];
-
-const breadcrumbs = [
-    {
-        text: 'Home',
-        href: '/',
-    },
-];
-
-
-const Content = () => {
-    return (
-        <div></div>
-    );
-};
-
+import AdminDashboard from "./Admin/AdminDashboard";
+import AccountingDashboard from './Accounting/AccountingDashboard';
 
 
 
 
 function App() {
     return (
-        <div className="App">
+        <div className="admin">
             <TopNavigation />
-            <AppLayout
-                stickyNotifications
-                toolsHide
-                ariaLabels={{ navigationClose: 'close' }}
-                navigation={
-                    <TopNavigation />,
-                    <SideNavigation activeHref="#/pages" items={navItems} />
-                    }
-                breadcrumbs={<BreadcrumbGroup items={breadcrumbs} expandAriaLabel="Show path" ariaLabel="Breadcrumbs" />}
-                contentType="table"
-                content={<Content />}
-            />
-                
+            <Routes>
+                <Route path="/admin" element={<AdminDashboard></AdminDashboard>} />
+                <Route path="/accounting" element={<AccountingDashboard></AccountingDashboard>} />
+            </Routes>
         </div>
     );
 }
