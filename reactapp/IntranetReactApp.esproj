@@ -13,8 +13,5 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="docs\" />
-    <Folder Include="src\IntranetComponents\" />
-    <Folder Include="src\Sales\" />
-    <Folder Include="src\StockComponents\" />
   </ItemGroup>
 </Project>
