@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { createRoot } from 'react-dom/client';
-
+import "@cloudscape-design/global-styles/index.css"
 import { Route, Routes } from "react-router-dom"
 
 import {
@@ -19,11 +19,11 @@ import {
     SideNavigation
 } from "@cloudscape-design/components";
 
-import TopNavigation from "../TopNavigation/TopNavigation";
-import ReportTest from "../ReportTest/ReportTest";
+import TopNavigation from "../../Components/Custom/TopNavigation/TopNavigation";
+import ReportTest from "../../Components/Custom/ReportTest/ReportTest";;
 
 
-import "@cloudscape-design/global-styles/index.css"
+
 
 const navItems = [
     {

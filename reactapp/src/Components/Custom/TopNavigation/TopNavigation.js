@@ -32,56 +32,56 @@ export default () => {
                 {
                     type: "button",
                     text: "Partnership",
-                    href: "https://example.com/",
+                    href: "/Partnership",
                     external: false,
                     externalIconAriaLabel: ""
                 },
                 {
                     type: "button",
                     text: "Festivals",
-                    href: "https://example.com/",
+                    href: "/Festivals",
                     external: false,
                     externalIconAriaLabel: ""
                 },
                 {
                     type: "button",
                     text: "VS",
-                    href: "https://example.com/",
+                    href: "/VS",
                     external: false,
                     externalIconAriaLabel: ""
                 },
                 {
                     type: "button",
                     text: "Mail",
-                    href: "https://example.com/",
+                    href: "/Mail",
                     external: false,
                     externalIconAriaLabel: ""
                 },
                 {
                     type: "button",
                     text: "HR",
-                    href: "https://example.com/",
+                    href: "/HR",
                     external: false,
                     externalIconAriaLabel: ""
                 },
                 {
                     type: "button",
                     text: "Marketing",
-                    href: "https://example.com/",
+                    href: "/Marketing",
                     external: false,
                     externalIconAriaLabel: ""
                 },
                 {
                     type: "button",
                     text: "Sales",
-                    href: "https://example.com/",
+                    href: "/Sales",
                     external: false,
                     externalIconAriaLabel: ""
                 },
                 {
                     type: "button",
                     text: "IT",
-                    href: "https://example.com/",
+                    href: "/IT",
                     external: false,
                     externalIconAriaLabel: ""
                 },
@@ -140,5 +140,6 @@ export default () => {
                 }
             ]}
         />
+
     );
 }

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { createRoot } from 'react-dom/client';
-
 import { Route, Routes } from "react-router-dom"
+import AppLayout from '@cloudscape-design/components/app-layout';
+
 
 import {
-    AppLayout,
     BreadcrumbGroup,
     Header,
     Pagination,
@@ -16,14 +16,18 @@ import {
     Button,
     Box,
     Input,
+    ContentLayout,
+    DashboardSideNavigation,
+    ConfigurableWidget,
+    ResetButton,
+    PageBanner,
     SideNavigation
 } from "@cloudscape-design/components";
-
-import TopNavigation from "../TopNavigation/TopNavigation";
-import ReportTest from "../ReportTest/ReportTest";
-
+import TopNavigation from "../../Components/Custom/TopNavigation/TopNavigation";
+import ReportTest from "../../Components/Custom/ReportTest/ReportTest";
 
 import "@cloudscape-design/global-styles/index.css"
+
 
 const navItems = [
     {
@@ -50,18 +54,10 @@ const navItems = [
 
 const breadcrumbs = [
     {
-        text: 'Service name',
-        href: '#',
-    },
-    {
-        text: 'Pages',
-        href: '#',
+        text: 'Accounting',
+        href: '/Accounting',
     },
 ];
-
-
-
-
 
 const columnDefinitions = [
     {
@@ -93,46 +89,12 @@ const columnDefinitions = [
 
 const Content = () => {
     return (
-        <Table
-            items={[]}
-            columnDefinitions={columnDefinitions}
-            variant="full-page"
-            header={
-                <Header
-                    variant="awsui-h1-sticky"
-                    counter="(0)"
-                    actions={
-                        <SpaceBetween size="xs" direction="horizontal">
-                            <Button disabled>View details</Button>
-                            <Button disabled>Edit</Button>
-                            <Button disabled>Delete</Button>
-                            <Button variant="primary">Create page</Button>
-                        </SpaceBetween>
-                    }
-                >
-                    Pages
-                </Header>
-            }
-            stickyHeader={true}
-            empty={
-                <Box margin={{ vertical: 'xs' }} textAlign="center" color="inherit">
-                    <SpaceBetween size="xxs">
-                        <div>
-                            <b>No pages</b>
-                            <Box variant="p" color="inherit">
-                                You don't have any pages.
-                            </Box>
-                        </div>
-                        <Button>Create page</Button>
-                    </SpaceBetween>
-                </Box>
-            }
-        />
+       <board />
     );
 };
 
 
-export default ()=> {
+export default () => {
     return (
         <AppLayout
             stickyNotifications
