@@ -11,6 +11,7 @@ import {
     SpaceBetween,
     ButtonDropdown,
 } from "@cloudscape-design/components";
+import ReportTestCreateModal from "./ReportTestCreateModal";
 import { columnDefinitions, getMatchesCountText, paginationLabels, collectionPreferencesProps } from './ReportTestTableConfig';
 import "@cloudscape-design/global-styles/index.css"
 

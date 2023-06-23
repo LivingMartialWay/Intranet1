@@ -23,6 +23,7 @@ import {
     PageBanner,
     SideNavigation
 } from "@cloudscape-design/components";
+
 import TopNavigation from "../../Components/Custom/TopNavigation/TopNavigation";
 import ReportTest from "../../Components/Custom/ReportTest/ReportTest";
 
@@ -89,7 +90,7 @@ const columnDefinitions = [
 
 const Content = () => {
     return (
-       <board />
+       <ReportTest />
     );
 };
 

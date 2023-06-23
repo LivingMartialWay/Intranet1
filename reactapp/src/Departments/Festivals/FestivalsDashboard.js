@@ -49,12 +49,8 @@ const navItems = [
 
 const breadcrumbs = [
     {
-        text: 'Service name',
-        href: '#',
-    },
-    {
-        text: 'Pages',
-        href: '#',
+        text: 'Festivals',
+        href: '/festivals',
     },
 ];
 
