@@ -10,7 +10,7 @@ import { useHelpPanel } from "../../Components/Common/help-panel"
 export function DashboardMainInfo() {
   return (
     <HelpPanel
-      header={<h2>Admin Help</h2>}
+      header={<h2>Partnership Help</h2>}
       footer={
         <ExternalLinkGroup
           items={[
@@ -35,7 +35,7 @@ export function DashboardHeader({ actions }) {
       variant="h1"
       actions={actions}
     >
-      Admin Dashboard
+      Mail Dashboard
     </Header>
   )
 }

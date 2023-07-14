@@ -13,6 +13,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="docs\" />
-    <Folder Include="src\Departments\Admin\density-preferences\images\" />
+    <Folder Include="src\Components\Common\NewFolder\" />
+    <Folder Include="src\Components\Common\separated-list\" />
+    <Folder Include="src\Components\Widgets\alarms\" />
+    <Folder Include="src\Components\Widgets\events\" />
+    <Folder Include="src\Components\Widgets\instance-limits\" />
+    <Folder Include="src\Components\Widgets\network-traffic\" />
+    <Folder Include="src\Components\Widgets\account-attributes\" />
+    <Folder Include="src\Components\Widgets\features-spotlight\" />
+    <Folder Include="src\Components\Widgets\zone-status\" />
+    <Folder Include="src\Components\Widgets\service-health\" />
+    <Folder Include="src\Components\Widgets\service-overview\" />
   </ItemGroup>
 </Project>

@@ -4,14 +4,14 @@ import React, { useState } from "react"
 import Box from "@cloudscape-design/components/box"
 import Popover from "@cloudscape-design/components/popover"
 import Link from "@cloudscape-design/components/link"
-import { Navigation as CommonNavigation } from "./AdminNavigation"
+import { Navigation as CommonNavigation } from "./VSNavigation"
 import { DensityPreferencesDialog } from "../../Components/Common/density-preferences"
 
 const navItems = [
     { type: "link", text: "Dashboard", href: "#/" },
     {
         type: "link",
-        text: "Demo Report",
+        text: "Test Report!",
         href: "admin/AdminTestReport",
         info: (
             <Box color="text-status-info" variant="span">
@@ -40,69 +40,73 @@ const navItems = [
             </Box>
         )
     },
-    { type: "link", text: "Calander Master", href: "#/Tags" },
-    { type: "link", text: "Newsletters", href: "#/Newsletters" },
-    { type: "link", text: "Board Reports", href: "#/BoardReports" },
+    { type: "link", text: "VSR Calander", href: "#/Tags" },
+    { type: "link", text: "Call Transfer List", href: "#/Newsletters" },
+    { type: "link", text: "End of Day Report", href: "#/limits" },
     {
-        text: "Strategic Plan",
+        text: "EEC",
         type: "section",
         defaultExpanded: false,
         items: [
-            { type: "link", text: "Plans", href: "#/instances" },
-            { type: "link", text: "Updatable Plan", href: "#/spot_requests" }
+            { type: "link", text: "Create New EEC", href: "#/instances" },
+            { type: "link", text: "EEC Search", href: "#/spot_requests" },
+            {
+                type: "link",
+                text: "FAQ + Rules",
+                href: "#/reserved_instances"
+            },
+            { type: "link", text: "Voucher Order Requests", href: "#/dedicated_hosts" },
+            {
+                type: "link",
+                text: "EEC End-of-Day Report",
+                href: "#/capacity_reservations"
+            }
         ]
     },
     {
-        text: "Safety Patrol",
+        text: "Item Logs",
         type: "section",
         defaultExpanded: false,
         items: [
-            { type: "link", text: "Saftey Patrol Programs", href: "#/amis" },
-            { type: "link", text: "Reports", href: "#/volumes" },
-            { type: "link", text: "Vouchers", href: "#/snapshots" },
-            { type: "link", text: "Update Tools", href: "#/bundle_tasks" }
+            { type: "link", text: "Incoming", href: "#/amis" },
+            { type: "link", text: "Outgoing", href: "#/bundle_tasks" }
         ]
     },
     {
-        text: "Annual Meeting",
+        text: "Visitor Guide",
         type: "section",
         defaultExpanded: false,
         items: [
-            { type: "link", text: "Annual Meeting List", href: "#/volumes" },
-            { type: "link", text: "Online Reservations", href: "#/snapshots" },
-            { type: "link", text: "Guest List", href: "#/volumes" },
-            { type: "link", text: "Table Assignments", href: "#/snapshots" },
-            { type: "link", text: "Tickets & Scanner", href: "#/snapshots" },
+            { type: "link", text: "Visitor VG Order", href: "#/volumes" },
+            { type: "link", text: "Business VG Order", href: "#/snapshots" },
+            { type: "link", text: "VG Order Lookup", href: "#/lifecycle_manager" }
         ]
     },
     {
-        text: "Committees & Boards",
+        text: "GuestBook & Brochures",
         type: "section",
         defaultExpanded: false,
         items: [
-            { type: "link", text: "View Board & Committees", href: "#/security_groups" },
-            { type: "link", text: "Offices and Positions", href: "#/elastic_ips" },
-            { type: "link", text: "Update Tools", href: "#/placement_groups" }
+            { type: "link", text: "Guest Book VSR", href: "#/security_groups" },
+            { type: "link", text: "Guest Book Reports", href: "#/network_interfaces" },
+            { type: "link", text: "Brochure Search", href: "#/security_groups" },
+            { type: "link", text: "Brochure Reorder Report", href: "#/network_interfaces" },
         ]
     },
     {
-        text: "Elections",
-        type: "section",
-        defaultExpanded: false,
-        items: [
-            { type: "link", text: "Board Elections", href: "#/load_balancers" },
-            { type: "link", text: "General Elections", href: "#/target_groups" },
-        ]
-    },
-    {
-        text: "Tools",
+        text: "VS Internal",
         type: "section",
         defaultExpanded: false,
         items: [
             {
                 type: "link",
-                text: "Upload Documents",
+                text: "Policy Procedures",
                 href: "#/launch_configurations"
+            },
+            {
+                type: "link",
+                text: "Forms & Permits Directory",
+                href: "#/auto_scaling_groups"
             }
         ]
     },

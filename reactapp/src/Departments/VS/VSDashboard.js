@@ -1,148 +1,101 @@
-import React, { useEffect, useState } from 'react';
-import { createPortal } from 'react-dom';
-import { createRoot } from 'react-dom/client';
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: MIT-0
+import React, { useRef, useState } from "react"
 
-import { Route, Routes } from "react-router-dom"
+import AppLayout from "@cloudscape-design/components/app-layout"
+import Button from "@cloudscape-design/components/button"
+import ContentLayout from "@cloudscape-design/components/content-layout"
+import Grid from "@cloudscape-design/components/grid"
 
-import {
-    AppLayout,
-    BreadcrumbGroup,
-    Header,
-    Pagination,
-    TextFilter,
-    SpaceBetween,
-    ButtonDropdown,
-    Table,
-    Button,
-    Box,
-    Input,
-    SideNavigation
-} from "@cloudscape-design/components";
+import "@cloudscape-design/global-styles/dark-mode-utils.css"
+/*
+import "../../Components/Common/styles/base.scss"
+*/
+import { DashboardHeader, DashboardMainInfo } from "./VSHeader";
+import { DashboardSideNavigation } from "./VSSideNav"
+import { Breadcrumbs } from "../../Components/Common/breadcrumbs"
+import { Notifications } from "../../Components/Common/notifications"
+import { HelpPanelProvider } from "../../Components/Common/help-panel"
 
-import TopNavigation from "../../Components/Custom/TopNavigation/TopNavigation";
+
+
+import BaseStaticWidget from "../../Components/Widgets/base-static-widget"
+import alarms from "../../Components/Widgets/alarms"
+import serviceOverview from "../../Components/Widgets/service-overview"
+import instanceHours from "../../Components/Widgets/instance-hours"
+import serviceHealth from "../../Components/Widgets/service-health"
+import events from "../../Components/Widgets/events"
+import instanceLimits from "../../Components/Widgets/instance-limits"
+import networkTraffic from "../../Components/Widgets/network-traffic"
+import accountAttributes from "../../Components/Widgets/account-attributes"
+import featuresSpotlight from "../../Components/Widgets/features-spotlight"
+import zoneStatus from "../../Components/Widgets/zone-status"
+
+
+
 import ReportTest from "../../Components/Custom/ReportTest/ReportTest";
 
 
-import "@cloudscape-design/global-styles/index.css"
-
-const navItems = [
-    {
-        type: 'section',
-        text: 'Manage',
-        items: [
-            { type: 'link', text: 'Pages', href: '#/pages' },
-            { type: 'link', text: 'Users', href: '#/users' },
-        ],
-    },
-    {
-        type: 'section',
-        text: 'Set up',
-        items: [
-            { type: 'link', text: 'Database', href: '#/database' },
-            { type: 'link', text: 'Authentication', href: '#/authentication' },
-            { type: 'link', text: 'Analytics', href: '#/analytics' },
-            { type: 'link', text: 'Predictions', href: '#/predictions' },
-            { type: 'link', text: 'Interactions', href: '#/interactions' },
-            { type: 'link', text: 'Notifications', href: '#/notifications' },
-        ],
-    },
-];
-
-const breadcrumbs = [
-    {
-        text: 'Service name',
-        href: '#',
-    },
-    {
-        text: 'Pages',
-        href: '#',
-    },
-];
-
-
-
-
-
-const columnDefinitions = [
-    {
-        id: 'name',
-        cell: item => item.name,
-        header: 'Name',
-        minWidth: 160,
-        isRowHeader: true,
-    },
-    {
-        id: 'type',
-        header: 'Type',
-        cell: item => item.type,
-        minWidth: 100,
-    },
-    {
-        id: 'size',
-        header: 'Size',
-        cell: item => item.size,
-        minWidth: 100,
-    },
-    {
-        id: 'description',
-        header: 'Description',
-        cell: item => item.description,
-        minWidth: 100,
-    },
-];
-
-const Content = () => {
+function Content() {
     return (
-        <Table
-            items={[]}
-            columnDefinitions={columnDefinitions}
-            variant="full-page"
-            header={
-                <Header
-                    variant="awsui-h1-sticky"
-                    counter="(0)"
-                    actions={
-                        <SpaceBetween size="xs" direction="horizontal">
-                            <Button disabled>View details</Button>
-                            <Button disabled>Edit</Button>
-                            <Button disabled>Delete</Button>
-                            <Button variant="primary">Create page</Button>
-                        </SpaceBetween>
-                    }
-                >
-                    Pages
-                </Header>
-            }
-            stickyHeader={true}
-            empty={
-                <Box margin={{ vertical: 'xs' }} textAlign="center" color="inherit">
-                    <SpaceBetween size="xxs">
-                        <div>
-                            <b>No pages</b>
-                            <Box variant="p" color="inherit">
-                                You don't have any pages.
-                            </Box>
-                        </div>
-                        <Button>Create page</Button>
-                    </SpaceBetween>
-                </Box>
-            }
-        />
-    );
-};
-
-
-export default ()=> {
-    return (
-        <AppLayout
-            stickyNotifications
-            toolsHide
-            ariaLabels={{ navigationClose: 'close' }}
-            navigation={<SideNavigation activeHref="#/pages" items={navItems} />}
-            breadcrumbs={<BreadcrumbGroup items={breadcrumbs} expandAriaLabel="Show path" ariaLabel="Breadcrumbs" />}
-            contentType="table"
-            content={<Content />}
-
-        />
-    );
+        <Grid
+            gridDefinition={[
+                { colspan: { l: 8, m: 8, default: 12 } },
+                { colspan: { l: 4, m: 4, default: 12 } },
+                { colspan: { l: 6, m: 6, default: 12 } },
+                { colspan: { l: 6, m: 6, default: 12 } },
+                { colspan: { l: 6, m: 6, default: 12 } },
+                { colspan: { l: 6, m: 6, default: 12 } },
+                { colspan: { l: 6, m: 6, default: 12 } },
+                { colspan: { l: 6, m: 6, default: 12 } },
+                { colspan: { l: 8, m: 8, default: 12 } },
+                { colspan: { l: 4, m: 4, default: 12 } }
+            ]}
+        >
+            {[
+                serviceOverview,
+            ].map((widget, index) => (
+                <BaseStaticWidget key={index} Content={widget.data?.content} config={widget.data} />
+            ))}
+        </Grid>
+    )
 }
+
+function AdminDashboard() {
+    const [toolsOpen, setToolsOpen] = useState(false);
+    const [toolsContent, setToolsContent] = useState(() => <DashboardMainInfo />);
+    const appLayout = useRef(null);
+
+    const handleToolsContentChange = content => {
+        setToolsOpen(true)
+        setToolsContent(content)
+        appLayout.current.focusToolsClose()
+    };
+
+    return (
+        <HelpPanelProvider value={handleToolsContentChange}>
+            <AppLayout
+                ref={appLayout}
+                content={
+                    <ContentLayout
+                        header={
+                            <DashboardHeader />
+                        }
+                    >
+                        <Content />
+                    </ContentLayout>
+                }
+                breadcrumbs={
+                    <Breadcrumbs items={[{ text: "Visitor Services", href: "#/" }]} />
+                }
+                navigation={<DashboardSideNavigation />}
+                tools={toolsContent}
+                toolsOpen={toolsOpen}
+                onToolsChange={({ detail }) => setToolsOpen(detail.open)}
+                notifications={<Notifications />}
+            />
+        </HelpPanelProvider>
+    )
+}
+
+export default AdminDashboard;

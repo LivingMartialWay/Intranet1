@@ -8,28 +8,33 @@ import ContentLayout from "@cloudscape-design/components/content-layout"
 import Grid from "@cloudscape-design/components/grid"
 
 import "@cloudscape-design/global-styles/dark-mode-utils.css"
+/*
 import "../../Components/Common/styles/base.scss"
-
-import { DashboardHeader, DashboardMainInfo } from "./AdminHeader"
+*/
+import { DashboardHeader, DashboardMainInfo } from "./AdminHeader";
 import { DashboardSideNavigation } from "./AdminSideNav"
 import { Breadcrumbs } from "../../Components/Common/breadcrumbs"
 import { Notifications } from "../../Components/Common/notifications"
 import { HelpPanelProvider } from "../../Components/Common/help-panel"
 
 
-import {
-    BaseStaticWidget,
-    alarms,
-    serviceOverview,
-    instanceHours,
-    serviceHealth,
-    events,
-    instanceLimits,
-    networkTraffic,
-    accountAttributes,
-    featuresSpotlight,
-    zoneStatus
-} from "./widgets"
+
+import BaseStaticWidget from "../../Components/Widgets/base-static-widget"
+import alarms from "../../Components/Widgets/alarms"
+import serviceOverview from "../../Components/Widgets/service-overview"
+import instanceHours from "../../Components/Widgets/instance-hours"
+import serviceHealth from "../../Components/Widgets/service-health"
+import events from "../../Components/Widgets/events"
+import instanceLimits from "../../Components/Widgets/instance-limits"
+import networkTraffic from "../../Components/Widgets/network-traffic"
+import accountAttributes from "../../Components/Widgets/account-attributes"
+import featuresSpotlight from "../../Components/Widgets/features-spotlight"
+import zoneStatus from "../../Components/Widgets/zone-status"
+
+
+
+import ReportTest from "../../Components/Custom/ReportTest/ReportTest";
+
 
 function Content() {
     return (
@@ -59,7 +64,7 @@ function Content() {
                 featuresSpotlight,
                 accountAttributes
             ].map((widget, index) => (
-                <BaseStaticWidget key={index} config={widget.data} />
+                <BaseStaticWidget key={index} Content={widget.data?.content} config={widget.data} />
             ))}
         </Grid>
     )
@@ -83,16 +88,14 @@ function AdminDashboard() {
                 content={
                     <ContentLayout
                         header={
-                            <DashboardHeader
-                                actions={<Button variant="primary">Launch instance</Button>}
-                            />
+                            <DashboardHeader />
                         }
                     >
                         <Content />
                     </ContentLayout>
                 }
                 breadcrumbs={
-                    <Breadcrumbs items={[{ text: "Dashboard", href: "#/" }]} />
+                    <Breadcrumbs items={[{ text: "Admin", href: "#/" }]} />
                 }
                 navigation={<DashboardSideNavigation />}
                 tools={toolsContent}

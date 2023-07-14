@@ -4,14 +4,14 @@ import React, { useState } from "react"
 import Box from "@cloudscape-design/components/box"
 import Popover from "@cloudscape-design/components/popover"
 import Link from "@cloudscape-design/components/link"
-import { Navigation as CommonNavigation } from "./AdminNavigation"
+import { Navigation as CommonNavigation } from "./FestivalsNavigation"
 import { DensityPreferencesDialog } from "../../Components/Common/density-preferences"
 
 const navItems = [
     { type: "link", text: "Dashboard", href: "#/" },
     {
         type: "link",
-        text: "Demo Report",
+        text: "Test Report!",
         href: "admin/AdminTestReport",
         info: (
             <Box color="text-status-info" variant="span">
@@ -40,58 +40,38 @@ const navItems = [
             </Box>
         )
     },
-    { type: "link", text: "Calander Master", href: "#/Tags" },
-    { type: "link", text: "Newsletters", href: "#/Newsletters" },
-    { type: "link", text: "Board Reports", href: "#/BoardReports" },
+    { type: "link", text: "Calender", href: "#/Tags" },
+    { type: "link", text: "Daily Log", href: "#/Newsletters" },
+    { type: "link", text: "Online Forms", href: "#/limits" },
     {
-        text: "Strategic Plan",
+        text: "Plaza",
         type: "section",
         defaultExpanded: false,
         items: [
-            { type: "link", text: "Plans", href: "#/instances" },
-            { type: "link", text: "Updatable Plan", href: "#/spot_requests" }
+            { type: "link", text: "Staffing", href: "#/instances" },
+            { type: "link", text: "Event Calender", href: "#/spot_requests" },
+            { type: "link", text: "Daily Log", href: "#/spot_requests" },
+            { type: "link", text: "Sales Reports", href: "#/spot_requests" },
+            { type: "link", text: "Document Repository", href: "#/spot_requests" }
         ]
     },
     {
-        text: "Safety Patrol",
+        text: "Dells On Tap",
         type: "section",
         defaultExpanded: false,
         items: [
-            { type: "link", text: "Saftey Patrol Programs", href: "#/amis" },
-            { type: "link", text: "Reports", href: "#/volumes" },
-            { type: "link", text: "Vouchers", href: "#/snapshots" },
-            { type: "link", text: "Update Tools", href: "#/bundle_tasks" }
+            { type: "link", text: "Registration", href: "#/amis" },
+            { type: "link", text: "Listing", href: "#/bundle_tasks" }
         ]
     },
     {
-        text: "Annual Meeting",
+        text: "Volunteers",
         type: "section",
         defaultExpanded: false,
         items: [
-            { type: "link", text: "Annual Meeting List", href: "#/volumes" },
-            { type: "link", text: "Online Reservations", href: "#/snapshots" },
-            { type: "link", text: "Guest List", href: "#/volumes" },
-            { type: "link", text: "Table Assignments", href: "#/snapshots" },
-            { type: "link", text: "Tickets & Scanner", href: "#/snapshots" },
-        ]
-    },
-    {
-        text: "Committees & Boards",
-        type: "section",
-        defaultExpanded: false,
-        items: [
-            { type: "link", text: "View Board & Committees", href: "#/security_groups" },
-            { type: "link", text: "Offices and Positions", href: "#/elastic_ips" },
-            { type: "link", text: "Update Tools", href: "#/placement_groups" }
-        ]
-    },
-    {
-        text: "Elections",
-        type: "section",
-        defaultExpanded: false,
-        items: [
-            { type: "link", text: "Board Elections", href: "#/load_balancers" },
-            { type: "link", text: "General Elections", href: "#/target_groups" },
+            { type: "link", text: "Roster", href: "#/volumes" },
+            { type: "link", text: "Schedule", href: "#/snapshots" },
+            { type: "link", text: "Waiver", href: "#/lifecycle_manager" }
         ]
     },
     {
@@ -101,8 +81,13 @@ const navItems = [
         items: [
             {
                 type: "link",
-                text: "Upload Documents",
+                text: "Document Repository",
                 href: "#/launch_configurations"
+            },
+            {
+                type: "link",
+                text: "Log Update",
+                href: "#/auto_scaling_groups"
             }
         ]
     },

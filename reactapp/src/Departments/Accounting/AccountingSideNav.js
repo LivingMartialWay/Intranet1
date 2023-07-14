@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import Box from "@cloudscape-design/components/box"
 import Popover from "@cloudscape-design/components/popover"
 import Link from "@cloudscape-design/components/link"
-import { Navigation as CommonNavigation } from "./AdminNavigation"
+import { Navigation as CommonNavigation } from "./AccountingNavigation"
 import { DensityPreferencesDialog } from "../../Components/Common/density-preferences"
 
 const navItems = [
@@ -40,58 +40,68 @@ const navItems = [
             </Box>
         )
     },
-    { type: "link", text: "Calander Master", href: "#/Tags" },
-    { type: "link", text: "Newsletters", href: "#/Newsletters" },
-    { type: "link", text: "Board Reports", href: "#/BoardReports" },
+    { type: "link", text: "Accounting Calander", href: "#/Tags" },
+    { type: "link", text: "Approve Invoices", href: "#/Newsletters" },
     {
-        text: "Strategic Plan",
+        text: "Accounts Payable",
         type: "section",
         defaultExpanded: false,
         items: [
-            { type: "link", text: "Plans", href: "#/instances" },
-            { type: "link", text: "Updatable Plan", href: "#/spot_requests" }
+            { type: "link", text: "Invoices To Be Approved", href: "#/instances" },
+            { type: "link", text: "Invoice List", href: "#/spot_requests" },
+            { type: "link", text: "Account Number List", href: "#/instances" },
+            { type: "link", text: "Vendor List", href: "#/spot_requests" },
+            { type: "link", text: "Sales Tax Report", href: "#/spot_requests" }
         ]
     },
     {
-        text: "Safety Patrol",
+        text: "Accounts Recievable",
         type: "section",
         defaultExpanded: false,
         items: [
-            { type: "link", text: "Saftey Patrol Programs", href: "#/amis" },
-            { type: "link", text: "Reports", href: "#/volumes" },
-            { type: "link", text: "Vouchers", href: "#/snapshots" },
-            { type: "link", text: "Update Tools", href: "#/bundle_tasks" }
+            { type: "link", text: "AR Check/Cash Log", href: "#/amis" },
+            { type: "link", text: "Billing Statements", href: "#/volumes" },
+            { type: "link", text: "iDSS Contacts", href: "#/snapshots" },
+            { type: "link", text: "iDSS Update Tools", href: "#/bundle_tasks" }
         ]
     },
     {
-        text: "Annual Meeting",
+        text: "Reports",
         type: "section",
         defaultExpanded: false,
         items: [
-            { type: "link", text: "Annual Meeting List", href: "#/volumes" },
-            { type: "link", text: "Online Reservations", href: "#/snapshots" },
-            { type: "link", text: "Guest List", href: "#/volumes" },
-            { type: "link", text: "Table Assignments", href: "#/snapshots" },
-            { type: "link", text: "Tickets & Scanner", href: "#/snapshots" },
+            { type: "link", text: "Budgets", href: "#/amis" },
+            { type: "link", text: "Another Report", href: "#/volumes" },
+            { type: "link", text: "Important Report", href: "#/snapshots" },
+            { type: "link", text: "Final Report", href: "#/bundle_tasks" }
         ]
     },
     {
-        text: "Committees & Boards",
+        text: "Forms & Documents",
         type: "section",
         defaultExpanded: false,
         items: [
-            { type: "link", text: "View Board & Committees", href: "#/security_groups" },
-            { type: "link", text: "Offices and Positions", href: "#/elastic_ips" },
-            { type: "link", text: "Update Tools", href: "#/placement_groups" }
+            { type: "link", text: "Blank W9", href: "#/volumes" },
+            { type: "link", text: "Bank Rec Review-Approval", href: "#/snapshots" },
+            { type: "link", text: "Invoice-WDVCB", href: "#/volumes" },
+            { type: "link", text: "Invoice-Festivals", href: "#/snapshots" },
+            { type: "link", text: "Invoice-EventMGMT", href: "#/snapshots" },
+            { type: "link", text: "Travel Expense", href: "#/volumes" },
+            { type: "link", text: "WDVCB FIN", href: "#/snapshots" },
+            { type: "link", text: "Festivals FIN", href: "#/snapshots" },
         ]
     },
     {
-        text: "Elections",
+        text: "Policies & Procedures",
         type: "section",
         defaultExpanded: false,
         items: [
-            { type: "link", text: "Board Elections", href: "#/load_balancers" },
-            { type: "link", text: "General Elections", href: "#/target_groups" },
+            { type: "link", text: "W9 Policy", href: "#/security_groups" },
+            { type: "link", text: "In-Kind", href: "#/elastic_ips" },
+            { type: "link", text: "Prize Winners", href: "#/placement_groups" },
+            { type: "link", text: "Taxes and Insurance", href: "#/security_groups" },
+            { type: "link", text: "MSDS", href: "#/elastic_ips" },
+            { type: "link", text: "Travel Expense", href: "#/placement_groups" }
         ]
     },
     {

@@ -10,13 +10,13 @@ import { useHelpPanel } from "../../Components/Common/help-panel"
 export function DashboardMainInfo() {
   return (
     <HelpPanel
-      header={<h2>Admin Help</h2>}
+      header={<h2>Festivals Help</h2>}
       footer={
         <ExternalLinkGroup
           items={[
             { href: "www.Google.com", text: "Try Googling it" },
             { href: "www.Google.com", text: "Consider if it's even important" },
-            { href: "www.Google.com", text: "Try Googling it" },
+            { href: "www.Google.com", text: "We get Room-Tax$ regardless" },
           ]}
         />
       }
@@ -35,7 +35,7 @@ export function DashboardHeader({ actions }) {
       variant="h1"
       actions={actions}
     >
-      Admin Dashboard
+      Festivals Dashboard
     </Header>
   )
 }

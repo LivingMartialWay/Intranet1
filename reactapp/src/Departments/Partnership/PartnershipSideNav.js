@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import Box from "@cloudscape-design/components/box"
 import Popover from "@cloudscape-design/components/popover"
 import Link from "@cloudscape-design/components/link"
-import { Navigation as CommonNavigation } from "./AdminNavigation"
+import { Navigation as CommonNavigation } from "./PartnershipNavigation"
 import { DensityPreferencesDialog } from "../../Components/Common/density-preferences"
 
 const navItems = [
@@ -40,70 +40,73 @@ const navItems = [
             </Box>
         )
     },
-    { type: "link", text: "Calander Master", href: "#/Tags" },
-    { type: "link", text: "Newsletters", href: "#/Newsletters" },
-    { type: "link", text: "Board Reports", href: "#/BoardReports" },
+    { type: "link", text: "Calander", href: "#/Tags" },
+    { type: "link", text: "Partner List", href: "#/Newsletters" },
     {
-        text: "Strategic Plan",
+        text: "Agreements",
         type: "section",
         defaultExpanded: false,
         items: [
-            { type: "link", text: "Plans", href: "#/instances" },
-            { type: "link", text: "Updatable Plan", href: "#/spot_requests" }
+            { type: "link", text: "Partnership Forms", href: "#/instances" },
+            { type: "link", text: "Application List", href: "#/spot_requests" },
+            { type: "link", text: "3 Year Comparisons", href: "#/instances" },
+            { type: "link", text: "Archived Agreements", href: "#/spot_requests" },
+            { type: "link", text: "Email List", href: "#/spot_requests" }
         ]
     },
     {
-        text: "Safety Patrol",
+        text: "Contacts",
         type: "section",
         defaultExpanded: false,
         items: [
-            { type: "link", text: "Saftey Patrol Programs", href: "#/amis" },
-            { type: "link", text: "Reports", href: "#/volumes" },
-            { type: "link", text: "Vouchers", href: "#/snapshots" },
-            { type: "link", text: "Update Tools", href: "#/bundle_tasks" }
+            { type: "link", text: "Directory", href: "#/snapshots" },
+            { type: "link", text: "Contacts By Partnership", href: "#/amis" },
+            { type: "link", text: "Brochures", href: "#/volumes" },
+            { type: "link", text: "iDSS Update Tools", href: "#/bundle_tasks" }
         ]
     },
     {
-        text: "Annual Meeting",
+        text: "Online Forms",
         type: "section",
         defaultExpanded: false,
         items: [
-            { type: "link", text: "Annual Meeting List", href: "#/volumes" },
-            { type: "link", text: "Online Reservations", href: "#/snapshots" },
-            { type: "link", text: "Guest List", href: "#/volumes" },
-            { type: "link", text: "Table Assignments", href: "#/snapshots" },
-            { type: "link", text: "Tickets & Scanner", href: "#/snapshots" },
+            { type: "link", text: "Partnership Online Forms", href: "#/amis" },
+            { type: "link", text: "Newsletter Submissions", href: "#/volumes" },
+            { type: "link", text: "Solicitation Calender", href: "#/snapshots" },
+            { type: "link", text: "Final Report", href: "#/bundle_tasks" }
         ]
     },
     {
-        text: "Committees & Boards",
+        text: "Benefits",
         type: "section",
         defaultExpanded: false,
         items: [
-            { type: "link", text: "View Board & Committees", href: "#/security_groups" },
-            { type: "link", text: "Offices and Positions", href: "#/elastic_ips" },
-            { type: "link", text: "Update Tools", href: "#/placement_groups" }
+            { type: "link", text: "Benefit List", href: "#/volumes" },
+            { type: "link", text: "Program Participants", href: "#/snapshots" },
+            { type: "link", text: "Partnership Brochure", href: "#/volumes" },
+            { type: "link", text: "Benefits by Tier", href: "#/snapshots" },
         ]
     },
     {
-        text: "Elections",
+        text: "EEC",
         type: "section",
         defaultExpanded: false,
         items: [
-            { type: "link", text: "Board Elections", href: "#/load_balancers" },
-            { type: "link", text: "General Elections", href: "#/target_groups" },
+            { type: "link", text: "EEC / Voucher Report", href: "#/security_groups" },
+            { type: "link", text: "Coupons", href: "#/elastic_ips" },
+            { type: "link", text: "Participant List", href: "#/placement_groups" },
+            { type: "link", text: "iDSS & EEC", href: "#/security_groups" },
+            { type: "link", text: "Orders", href: "#/elastic_ips" },
         ]
     },
     {
-        text: "Tools",
+        text: "Bylaws, Policy, Contracts",
         type: "section",
         defaultExpanded: false,
         items: [
-            {
-                type: "link",
-                text: "Upload Documents",
-                href: "#/launch_configurations"
-            }
+            { type: "link", text: "Bureau Bylaws '24", href: "#/security_groups" },
+            { type: "link", text: "Partnership Policies", href: "#/elastic_ips" },
+            { type: "link", text: "Blank Agreements '24", href: "#/placement_groups" },
         ]
     },
     { type: "divider" },

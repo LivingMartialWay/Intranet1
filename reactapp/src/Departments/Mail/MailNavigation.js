@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT-0
 import React from "react"
 import SideNavigation from "@cloudscape-design/components/side-navigation"
-const navHeader = { text: "Service", href: "#/" }
+const navHeader = { text: "Mail", href: "/Mail" }
 
 export const navItems = [
     {
