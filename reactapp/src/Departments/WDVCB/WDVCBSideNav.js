@@ -4,17 +4,15 @@ import React, { useState } from "react"
 import Box from "@cloudscape-design/components/box"
 import Popover from "@cloudscape-design/components/popover"
 import Link from "@cloudscape-design/components/link"
-import { Navigation as CommonNavigation } from "./AdminNavigation"
+import { Navigation as CommonNavigation } from "./WDVCBNavigation"
 import { DensityPreferencesDialog } from "../../Components/Common/density-preferences"
-import { Route, Routes } from "react-router-dom"
-
 
 const navItems = [
     { type: "link", text: "Dashboard", href: "#/" },
     {
         type: "link",
         text: "Demo Report",
-        href: "/admin/ReportTest",
+        href: "admin/AdminTestReport",
         info: (
             <Box color="text-status-info" variant="span">
                 <Popover
@@ -42,9 +40,9 @@ const navItems = [
             </Box>
         )
     },
-    { type: "link", text: "Calander Master", href: "#/Tags" },
-    { type: "link", text: "Newsletters", href: "#/Newsletters" },
-    { type: "link", text: "Board Reports", href: "#/BoardReports" },
+    { type: "link", text: "Bureau Calender", href: "#/Tags" },
+    { type: "link", text: "Staff Phone List", href: "#/Newsletters" },
+    { type: "link", text: "Time Calculator", href: "#/BoardReports" },
     {
         text: "Strategic Plan",
         type: "section",
@@ -119,8 +117,10 @@ const navItems = [
 export function DashboardSideNavigation() {
     const [dialogVisible, setDialogVisible] = useState(false)
     const onFollowHandler = event => {
-        window.location.href = event.detail.href 
-        
+        event.preventDefault()
+        if (event.detail.href === "#/density_settings") {
+            setDialogVisible(true)
+        }
     }
 
     return (
@@ -128,7 +128,7 @@ export function DashboardSideNavigation() {
             <CommonNavigation
                 items={navItems}
                 activeHref="#/"
-                onFollowHandler={onFollowHandler} 
+                onFollowHandler={onFollowHandler}
             />
             {dialogVisible && (
                 <DensityPreferencesDialog onDismiss={() => setDialogVisible(false)} />

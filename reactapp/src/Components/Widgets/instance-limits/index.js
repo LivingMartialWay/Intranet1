@@ -46,13 +46,13 @@ function InstanceLimitsHeader() {
                     iconName="external"
                     iconAlign="right"
                     disabled={!selectedId}
-                    data-testid="instance-limits-increase-button"
+                    data-testid="Create Solicitation"
                 >
-                    Request limit increase
+                    Create Solicitation
                 </Button>
             }
         >
-            On-demand instance limits
+            Current Solicitations
         </Header>
     )
 }
@@ -60,31 +60,31 @@ function InstanceLimitsHeader() {
 function InstanceLimitsFooter() {
     return (
         <Box textAlign="center">
-            <Link href="#">View all instance limits</Link>
+            <Link href="#">View all solicitations</Link>
         </Box>
     )
 }
 
 const instanceLimitsItems = [
     {
-        name: "Running on-demand all G instances",
-        statusText: "900 used/920 limit",
-        status: "warning"
-    },
-    {
-        name: "Running on-demand all P instances",
-        statusText: "692 used/692 limit",
-        status: "warning"
-    },
-    {
-        name: "Running on-demand all Standard instances",
-        statusText: "50 used/10304 limit",
+        name: "Visitor Guide Full Page ",
+        statusText: "10 returned / 0 Remaining",
         status: "success"
     },
     {
-        name: "Running on-demand all F instances",
-        statusText: "0 used/176 limit",
-        status: "success"
+        name: "Visitor Guide Half Page",
+        statusText: "42 returned / 8 remaining",
+        status: "pending"
+    },
+    {
+        name: "Visitor Guide Quarter Page",
+        statusText: "349 returned / 151 remaining",
+        status: "pending"
+    },
+    {
+        name: "Inside Cover Advert",
+        statusText: "0 returned / 4 remaining ",
+        status: "warning"
     }
 ]
 const instanceLimitsDefinition = [

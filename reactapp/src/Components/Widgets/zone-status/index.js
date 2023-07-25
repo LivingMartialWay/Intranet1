@@ -11,6 +11,16 @@ import {
 import { percentageFormatter } from "../chart-commons"
 import { ResponsiveChartContainer } from "../../Common/responsive-chart-container"
 
+
+const colorChartsStatusPositive = "#f83939";
+const colorChartsStatusHigh = "#f8a239";
+const Purple = "#800080";
+const Green = "#00FF00";
+const Yellow = "#EADDCA";
+const Red = "#FF0000";
+const Blue = "#0096FF";
+const Pink = "#ff007f";
+
 export const zoneStatus = {
     definition: { defaultRowSpan: 4, defaultColumnSpan: 2, minRowSpan: 3 },
     data: {
@@ -26,7 +36,7 @@ export const zoneStatus = {
 function ZoneStatusHeader() {
     return (
         <Header variant="h2">
-            Zone status - <i>beta</i>
+            Current Partners: <i>401</i>
         </Header>
     )
 }
@@ -51,11 +61,35 @@ function ZoneStatusContent() {
                     size={getChartSize(height)}
                     data={[
                         {
-                            title: "Operating normally",
-                            value: 18,
-                            color: colorChartsStatusPositive
+                            title: "01 Supplier Partner",
+                            value: 61,
+                            color: Blue
                         },
-                        { title: "Disrupted", value: 2, color: colorChartsStatusHigh }
+                        {
+                            title: "01 Marketing Partner",
+                            value: 151,
+                            color: Red
+                        },
+                        {
+                            title: "02 Marketing Partner",
+                            value: 83,
+                            color: colorChartsStatusHigh
+                        },
+                        {
+                            title: "03 Marketing Partner",
+                            value: 41,
+                            color: Green
+                        },
+                        {
+                            title: "04 Marketing Partner",
+                            value: 50,
+                            color: Purple
+                        },
+                        {
+                            title: "Tourism Affiliate",
+                            value: 14,
+                            color: Pink
+                        }
                     ]}
                     ariaLabel="Zone status chart"
                     ariaDescription="Pie chart summarizing the status of all zones."

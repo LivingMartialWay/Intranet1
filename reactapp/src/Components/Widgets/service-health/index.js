@@ -8,9 +8,9 @@ import {
     ColumnLayout
 } from "@cloudscape-design/components"
 import InfoLink from "../../Common/InfoLink"
-/*
-import useHelpPanel from "../../Common/help-panel"
-*/
+
+import { useHelpPanel }  from "../../Common/help-panel"
+
 import { ServiceHealthInfo } from "./help-content"
 
 export const serviceHealth = {
@@ -36,7 +36,7 @@ function ServiceHealthHeader() {
                 />
             }
         >
-            Service health
+            Backup Monitor
         </Header>
     )
 }
@@ -45,13 +45,13 @@ export default function ServiceHealthContent() {
     return (
         <ColumnLayout columns={2}>
             <div>
-                <Box variant="awsui-key-label">Region</Box>
-                <div>US East (N. Virginia)</div>
+                <Box variant="awsui-key-label">IP Address</Box>
+                <div>192.168.0.25\Network</div>
             </div>
             <div>
                 <Box variant="awsui-key-label">Status</Box>
                 <StatusIndicator type="success">
-                    Service is operating normally
+                    Backups are operating normally
                 </StatusIndicator>
             </div>
         </ColumnLayout>

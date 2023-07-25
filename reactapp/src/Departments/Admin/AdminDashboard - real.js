@@ -11,8 +11,8 @@ import "@cloudscape-design/global-styles/dark-mode-utils.css"
 /*
 import "../../Components/Common/styles/base.scss"
 */
-import { DashboardHeader, DashboardMainInfo } from "./SalesHeader";
-import { DashboardSideNavigation } from "./SalesSideNav"
+import { DashboardHeader, DashboardMainInfo } from "./AdminHeader";
+import { DashboardSideNavigation } from "./AdminSideNav"
 import { Breadcrumbs } from "../../Components/Common/breadcrumbs"
 import { Notifications } from "../../Components/Common/notifications"
 import { HelpPanelProvider } from "../../Components/Common/help-panel"
@@ -53,9 +53,16 @@ function Content() {
             ]}
         >
             {[
-
+                serviceOverview,
+                serviceHealth,
+                /*instanceHours,*/
+                events,
+                networkTraffic,
+                alarms,
+                instanceLimits,
+                zoneStatus,
                 featuresSpotlight,
-
+                accountAttributes
             ].map((widget, index) => ( 
                 <BaseStaticWidget key={index} Content={widget.data?.content} Header={widget.data?.header} Footer={widget.data?.footer} config={widget.data} />
             ))}
@@ -88,7 +95,7 @@ function AdminDashboard() {
                     </ContentLayout>
                 }
                 breadcrumbs={
-                    <Breadcrumbs items={[{ text: "Sales", href: "#/" }]} />
+                    <Breadcrumbs items={[{ text: "Admin", href: "#/" }]} />
                 }
                 navigation={<DashboardSideNavigation />}
                 tools={toolsContent}

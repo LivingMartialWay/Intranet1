@@ -14,7 +14,7 @@ export const networkTraffic = {
     definition: { defaultRowSpan: 4, defaultColumnSpan: 2, minRowSpan: 3 },
     data: {
         icon: "lineChart",
-        title: "Network traffic",
+        title: "Welcome Center",
         description: "Incoming and outgoing network traffic",
         header: NetworkTrafficHeader,
         content: NetworkTrafficContent,
@@ -24,8 +24,8 @@ export const networkTraffic = {
 
 function NetworkTrafficHeader() {
     return (
-        <Header variant="h2" description="Incoming and outgoing network traffic">
-            Network traffic
+        <Header variant="h2" description="4-Year Comparison of WDVCB Foot Traffic">
+            Welcome Center
         </Header>
     )
 }
@@ -40,11 +40,11 @@ export default function NetworkTrafficContent() {
                     hideFilter={true}
                     height={height}
                     series={networkTrafficSeries}
-                    yDomain={[0, 200000]}
+                    yDomain={[0, 200]}
                     xDomain={networkTrafficDomain}
                     xScaleType="time"
                     xTitle="Time (UTC)"
-                    yTitle="Data transferred"
+                    yTitle="Persons"
                     ariaLabel="Network traffic"
                     ariaDescription={`Line chart showing transferred data of all your instances. ${lineChartInstructions}`}
                     i18nStrings={{

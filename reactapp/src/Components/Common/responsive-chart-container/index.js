@@ -9,14 +9,13 @@ const chartMargins = 100
 const filterHeight = 75
 const legendHeight = 60
 
-export function ResponsiveChartContainer({ render, hideFilter, hideLegend }) {
-    const [availableHeight, ref] = useContainerQuery(rect => rect.borderBoxHeight)
+export function ResponsiveChartContainer({ render, hideFilter, hideLegend, height = 400 }) {
     return (
-        <div ref={ref} className={styles.measureRoot}>
+        <div className={styles.measureRoot} style={{height}}>
             <div className={styles.content}>
-                {availableHeight
+                {height
                     ? render(
-                        availableHeight -
+                        height -
                         chartMargins -
                         (hideLegend ? 0 : legendHeight) -
                         (hideFilter ? 0 : filterHeight)

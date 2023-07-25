@@ -16,13 +16,13 @@ export const accountAttributes = {
 }
 
 function AccountAttributesHeader() {
-    return <Header variant="h2">Account attributes</Header>
+    return <Header variant="h2">USPS Account</Header>
 }
 
 function AccountAttributesFooter() {
     return (
         <Box textAlign="center">
-            <Link href="#">Learn more</Link>
+            <Link external href="#">Account Settings</Link>
         </Box>
     )
 }
@@ -32,8 +32,8 @@ function AccountAttributesContent() {
         <>
             <Box variant="awsui-key-label">Supported platforms</Box>
             <Box variant="p">
-                The account supports both the EC2-Classic platform and VPCs in this
-                region, but the region does not have a default VPC.
+                USPS and Pitney Bowes have implemented automatic shipping price calculator for your region. <br/>
+                Please navigate to USPS.com and setup this feature.
             </Box>
         </>
     )

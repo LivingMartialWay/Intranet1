@@ -4,7 +4,7 @@ import React from "react"
 import { Container } from "@cloudscape-design/components"
 import styles from "./styles.module.scss"
 
-export function BaseStaticWidget({ config, Content = React.Fragment }) {
+export function BaseStaticWidget({ config, Content = React.Fragment, Header = React.Fragment, Footer }) {
     const Wrapper = config?.provider ?? React.Fragment
     return (
         <div
@@ -12,7 +12,9 @@ export function BaseStaticWidget({ config, Content = React.Fragment }) {
         >
             <Wrapper>
                 <Container
+                    header={<Header />}
                     fitHeight={true}
+                    footer={Footer?<Footer />:null}
                 >
                     <Content />
                 </Container>

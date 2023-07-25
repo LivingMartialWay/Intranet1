@@ -17,38 +17,37 @@ export const serviceOverview = {
 
 function ServiceOverviewHeader() {
     return (
-        <Header variant="h2" description="Viewing data from N. Virginia region">
-            Service overview - <em>new</em>
+        <Header variant="h2" description="Viewing data from Indeed.com">
+            HR Overview
         </Header>
     )
 }
 
 function ServiceOverviewWidget() {
-    console.log("nigger")
     return (
         <ColumnLayout columns={4} variant="text-grid" minColumnWidth={170}>
             <div>
-                <Box variant="awsui-key-label">Running instances</Box>
+                <Box variant="awsui-key-label">Listed Positions</Box>
                 <Link variant="awsui-value-large" href="#">
-                    14
+                    6
                 </Link>
             </div>
             <div>
-                <Box variant="awsui-key-label">Volumes</Box>
+                <Box variant="awsui-key-label">Interested Persons</Box>
                 <Link variant="awsui-value-large" href="#">
                     126
                 </Link>
             </div>
             <div>
-                <Box variant="awsui-key-label">Security groups</Box>
+                <Box variant="awsui-key-label">Resumes Submitted</Box>
                 <Link variant="awsui-value-large" href="#">
-                    116
+                    28
                 </Link>
             </div>
             <div>
-                <Box variant="awsui-key-label">Load balancers</Box>
+                <Box variant="awsui-key-label">Unread Resumes</Box>
                 <Link variant="awsui-value-large" href="#">
-                    28
+                    2
                 </Link>
             </div>
         </ColumnLayout>

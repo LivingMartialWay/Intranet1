@@ -25,14 +25,14 @@ export const alarms = {
 function AlarmsHeader() {
     return (
         <Header
-            counter="(150)"
+            counter="(24)"
             actions={
                 <Button variant="normal" href="#" iconName="external" iconAlign="right">
-                    View in Cloudwatch
+                    View in Browser
                 </Button>
             }
         >
-            Alarms
+            Concession Inventory
         </Header>
     )
 }
@@ -40,7 +40,7 @@ function AlarmsHeader() {
 function AlarmsFooter() {
     return (
         <Box textAlign="center">
-            <Link href="#">View all alarms</Link>
+            <Link href="#">View all inventory</Link>
         </Box>
     )
 }
@@ -65,24 +65,24 @@ const alarmsDefinition = [
 
 const alarmsItems = [
     {
-        name: "TargetTracking-table/divstable",
-        statusText: "In alarm",
+        name: "Hogwash Piggleberry",
+        statusText: "13 Units - Low Inventory",
         status: "warning"
     },
     {
-        name: "TargetTracking-table/divstable",
-        statusText: "In alarm",
-        status: "warning"
+        name: "New Glarus Spotted Cow",
+        statusText: "138 Units",
+        status: "success"
     },
     {
-        name: "awsroute53-303920aa-0498-4129-a1b7",
-        statusText: "In alarm",
-        status: "warning"
+        name: "Diet Pepsi",
+        statusText: "231 units",
+        status: "success"
     },
     {
-        name: "awsdynamodb-test0mark0test-Consumed-read",
-        statusText: "Insufficient data",
-        status: "pending"
+        name: "Fritos",
+        statusText: "Unknown quantity",
+        status: "stopped"
     }
 ]
 

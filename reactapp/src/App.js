@@ -28,7 +28,7 @@ import AdminTestReport from "./Departments/Admin/AdminTestReport";
 import AccountingDashboard from './Departments/Accounting/AccountingDashboard';
 
 
-
+import WDVCBDashboard from "./Departments/WDVCB/WDVCBDashboard";
 import FestivalsDashboard from "./Departments/Festivals/FestivalsDashboard";
 import HRDashboard from "./Departments/HR/HRDashboard";
 import ITDashboard from "./Departments/IT/ITDashboard";
@@ -48,16 +48,19 @@ function App() {
         <div className="admin">
             <TopNavigation />
             <Routes>
-                <Route path="/admin" element={<AdminDashboard></AdminDashboard>} />
-                        <Route path="/admin/AdminTestReport" element={<AdminTestReport></AdminTestReport>} />
-
-                <Route path="/accounting" element={<AccountingDashboard></AccountingDashboard>} />
+                <Route path="/" element={<WDVCBDashboard></WDVCBDashboard>} />
 
 
-                <Route path="/festivals" element={<FestivalsDashboard></FestivalsDashboard>} />
+                <Route path="/admin/*" element={<AdminDashboard></AdminDashboard>} />
 
 
-                <Route path="/HR" element={<HRDashboard></HRDashboard>} />
+                <Route path="/accounting/*" element={<AccountingDashboard></AccountingDashboard>} />
+
+
+                <Route path="/festivals/*" element={<FestivalsDashboard></FestivalsDashboard>} />
+
+
+                <Route path="/HR/*" element={<HRDashboard></HRDashboard>} />
 
 
                 <Route path="/IT" element={<ITDashboard></ITDashboard>} />

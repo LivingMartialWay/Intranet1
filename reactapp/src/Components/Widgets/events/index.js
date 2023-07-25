@@ -25,13 +25,13 @@ export const events = {
 }
 
 function EventsHeader() {
-    return <Header counter={`(${eventsItems.length})`}>Events</Header>
+    return <Header counter={`(${eventsItems.length})`}>Invoice Approval</Header>
 }
 
 function EventsFooter() {
     return (
         <Box textAlign="center">
-            <Link href="#">View all events</Link>
+            <Link href="#">View all invoices</Link>
         </Box>
     )
 }
@@ -39,15 +39,15 @@ function EventsFooter() {
 const eventsDefinition = [
     {
         id: "name",
-        header: "Event name",
+        header: "Vendor Name",
         cell: item => item.name,
-        minWidth: 135,
-        width: 140,
+        minWidth: 155,
+        width: 170,
         isRowHeader: true
     },
     {
         id: "status",
-        header: "Event status",
+        header: "Due Date",
         cell: ({ statusText, status }) => (
             <StatusIndicator type={status}>{statusText}</StatusIndicator>
         ),
@@ -56,15 +56,15 @@ const eventsDefinition = [
     },
     {
         id: "id",
-        header: "Event ID",
-        cell: item => <Link href="#">{item.id}</Link>,
-        minWidth: 165,
-        width: 170
+        header: "Method",
+        cell: item => item.type,
+        minWidth: 125,
+        width: 130
     },
     {
         id: "type",
-        header: "Event type",
-        cell: item => item.type,
+        header: "Complete",
+        cell: item => <Link href="#">{item.id}</Link>,
         minWidth: 130,
         width: 135
     }

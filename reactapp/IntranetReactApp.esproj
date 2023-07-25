@@ -18,7 +18,6 @@
     <Folder Include="src\Components\Widgets\alarms\" />
     <Folder Include="src\Components\Widgets\events\" />
     <Folder Include="src\Components\Widgets\instance-limits\" />
-    <Folder Include="src\Components\Widgets\network-traffic\" />
     <Folder Include="src\Components\Widgets\account-attributes\" />
     <Folder Include="src\Components\Widgets\features-spotlight\" />
     <Folder Include="src\Components\Widgets\zone-status\" />

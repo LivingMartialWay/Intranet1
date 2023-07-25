@@ -19,9 +19,9 @@ function FeaturesSpotlightHeader() {
     return (
         <Header
             variant="h2"
-            description="Updates on features available in N. Virginia region"
+            description="Updates on upcoming convetions in Wisconsin Dells and Lake Delton"
         >
-            Features spotlight
+            Convention spotlight
         </Header>
     )
 }
@@ -38,28 +38,29 @@ export function FeaturesSpotlightContent() {
     return (
         <ColumnLayout columns={2} variant="text-grid">
             <div>
-                <Box color="text-label">August 26, 2019</Box>
+                <Box color="text-label">August 26, 2023</Box>
                 <Box padding={{ vertical: "xxs" }}>
-                    <Link href="#">Amazon EC2 Fleet Functionality</Link>
+                    <Link href="#">Realtors Anonymous  -  Kalahari</Link>
                 </Box>
                 <Box variant="p">
-                    Amazon EC2 Auto Scaling now lets you provision and automatically scale
-                    instances across purchase options, Availability Zones (AZ), and
-                    instance families in a single Auto Scaling group (ASG), to optimize
-                    scale, performance, and cost.
+                    Africa Ballroom.
+                    <br /><br />
+                    Realtors Anonymous helps new realtors better sell boring properties for more money.
+                    No wonder they chose Wisconsin Dells for this convention. 
                 </Box>
             </div>
             <div>
-                <Box color="text-label">September 9, 2019</Box>
+                <Box color="text-label">September 9, 2023</Box>
                 <Box padding={{ vertical: "xxs" }}>
                     <Link href="#">
-                        Amazon EC2 Hibernation Now Available on Amazon Linux 2
+                        Wisconsin Bass Fishermen - Wilderness
                     </Link>
                 </Box>
                 <Box variant="p">
-                    Amazon EC2 expands Hibernation support for Amazon Linux 2. You can now
-                    hibernate newly launched EC2 Instances running Amazon Linux 2, in
-                    addition to Amazon Linux and Ubuntu 18.04 LTS OS.
+                    Lodge Meeting Room
+                    <br /><br />
+                    Catch bigger fish with membership to WBF's Convention. Buy lures, talk tactics. 
+                    Two day escape for professional anglers in the Midwest.
                 </Box>
             </div>
         </ColumnLayout>

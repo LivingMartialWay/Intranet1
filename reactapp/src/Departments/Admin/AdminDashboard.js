@@ -17,16 +17,16 @@ import { Breadcrumbs } from "../../Components/Common/breadcrumbs"
 import { Notifications } from "../../Components/Common/notifications"
 import { HelpPanelProvider } from "../../Components/Common/help-panel"
 
-
+import { Route, Routes } from "react-router-dom"
 
 import BaseStaticWidget from "../../Components/Widgets/base-static-widget"
-import alarms from "../../Components/Widgets/alarms"
+import { alarms } from "../../Components/Widgets/alarms"
 import serviceOverview from "../../Components/Widgets/service-overview"
 import instanceHours from "../../Components/Widgets/instance-hours"
-import serviceHealth from "../../Components/Widgets/service-health"
-import events from "../../Components/Widgets/events"
-import instanceLimits from "../../Components/Widgets/instance-limits"
-import networkTraffic from "../../Components/Widgets/network-traffic"
+import { serviceHealth } from "../../Components/Widgets/service-health"
+import { events } from "../../Components/Widgets/events"
+import { instanceLimits } from "../../Components/Widgets/instance-limits"
+import { networkTraffic } from "../../Components/Widgets/network-traffic"
 import accountAttributes from "../../Components/Widgets/account-attributes"
 import featuresSpotlight from "../../Components/Widgets/features-spotlight"
 import zoneStatus from "../../Components/Widgets/zone-status"
@@ -38,35 +38,41 @@ import ReportTest from "../../Components/Custom/ReportTest/ReportTest";
 
 function Content() {
     return (
-        <Grid
-            gridDefinition={[
-                { colspan: { l: 8, m: 8, default: 12 } },
-                { colspan: { l: 4, m: 4, default: 12 } },
-                { colspan: { l: 6, m: 6, default: 12 } },
-                { colspan: { l: 6, m: 6, default: 12 } },
-                { colspan: { l: 6, m: 6, default: 12 } },
-                { colspan: { l: 6, m: 6, default: 12 } },
-                { colspan: { l: 6, m: 6, default: 12 } },
-                { colspan: { l: 6, m: 6, default: 12 } },
-                { colspan: { l: 8, m: 8, default: 12 } },
-                { colspan: { l: 4, m: 4, default: 12 } }
-            ]}
-        >
-            {[
-                serviceOverview,
-                serviceHealth,
-                instanceHours,
-                networkTraffic,
-                alarms,
-                instanceLimits,
-                events,
-                zoneStatus,
-                featuresSpotlight,
-                accountAttributes
-            ].map((widget, index) => (
-                <BaseStaticWidget key={index} Content={widget.data?.content} config={widget.data} />
-            ))}
-        </Grid>
+
+
+        <Routes>
+            <Route path="/" element={<Grid
+                gridDefinition={[
+                    { colspan: { l: 8, m: 8, default: 12 } },
+                    { colspan: { l: 4, m: 4, default: 12 } },
+                    { colspan: { l: 6, m: 6, default: 12 } },
+                    { colspan: { l: 6, m: 6, default: 12 } },
+                    { colspan: { l: 6, m: 6, default: 12 } },
+                    { colspan: { l: 6, m: 6, default: 12 } },
+                    { colspan: { l: 6, m: 6, default: 12 } },
+                    { colspan: { l: 6, m: 6, default: 12 } },
+                    { colspan: { l: 8, m: 8, default: 12 } },
+                    { colspan: { l: 4, m: 4, default: 12 } }
+                ]}
+            >
+                {[
+                    serviceOverview,
+                    serviceHealth,
+                    /*instanceHours,*/
+                    events,
+                    networkTraffic,
+                    alarms,
+                    instanceLimits,
+                    zoneStatus,
+                    featuresSpotlight,
+                    accountAttributes
+                ].map((widget, index) => (
+                    <BaseStaticWidget key={index} Content={widget.data?.content} Header={widget.data?.header} Footer={widget.data?.footer} config={widget.data} />
+                ))}
+            </Grid>} />
+
+            <Route path="/ReportTest" element={<ReportTest></ReportTest>} />
+        </Routes>
     )
 }
 
