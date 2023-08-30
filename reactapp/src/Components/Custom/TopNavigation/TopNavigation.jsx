@@ -1,8 +1,10 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import TopNavigation from "@cloudscape-design/components/top-navigation";
 import Link from "@cloudscape-design/components/link";
 
-export default () => {
+
+export default ({ user }) => {
+
     return (
         <TopNavigation
             identity={{
@@ -107,8 +109,8 @@ export default () => {
                 },
                 {
                     type: "menu-dropdown",
-                    text: "Daniel",
-                    description: "daniel@wisdells.com",
+                    text: user?.givenName,
+                    description: user?.userPrincipalName,
                     iconName: "user-profile",
                     items: [
                         { id: "profile", text: "Profile" },

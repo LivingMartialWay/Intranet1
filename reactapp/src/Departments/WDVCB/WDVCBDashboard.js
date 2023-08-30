@@ -30,18 +30,17 @@ import { networkTraffic } from "../../Components/Widgets/network-traffic"
 import accountAttributes from "../../Components/Widgets/account-attributes"
 import featuresSpotlight from "../../Components/Widgets/features-spotlight"
 import zoneStatus from "../../Components/Widgets/zone-status"
-
-
-
 import ReportTest from "../../Components/Custom/ReportTest/ReportTest";
+import NewsFeed from "../../Components/Widgets/NewsFeed/index"
+import NewsFeed2 from "../../Components/Widgets/NewsFeed2/index"
 
 
 function Content() {
     return (
         <Grid
             gridDefinition={[
-                { colspan: { l: 8, m: 8, default: 12 } },
-                { colspan: { l: 4, m: 4, default: 12 } },
+                { colspan: { l: 12, m: 12, default: 12 } },
+                { colspan: { l: 12, m: 12, default: 12 } },
                 { colspan: { l: 6, m: 6, default: 12 } },
                 { colspan: { l: 6, m: 6, default: 12 } },
                 { colspan: { l: 6, m: 6, default: 12 } },
@@ -53,6 +52,8 @@ function Content() {
             ]}
         >
             {[
+                NewsFeed2,
+                NewsFeed,
                 /*serviceOverview,
                 serviceHealth,
                 instanceHours,

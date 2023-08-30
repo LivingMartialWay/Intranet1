@@ -9,89 +9,31 @@ import { DensityPreferencesDialog } from "../../Components/Common/density-prefer
 
 const navItems = [
     { type: "link", text: "Dashboard", href: "#/" },
-    {
-        type: "link",
-        text: "Demo Report",
-        href: "admin/AdminTestReport",
-        info: (
-            <Box color="text-status-info" variant="span">
-                <Popover
-                    header="WDVCB Test Report"
-                    size="medium"
-                    triggerType="text"
-                    content={
-                        <>
-                           Our first report on our new table format!
-                        </>
-                    }
-                    renderWithPortal={true}
-                    dismissAriaLabel="Close"
-                >
-                    <Box
-                        variant="span"
-                        color="text-status-info"
-                        fontSize="body-s"
-                        fontWeight="bold"
-                        data-testid="new-feature-announcement-trigger"
-                    >
-                        New
-                    </Box>
-                </Popover>
-            </Box>
-        )
-    },
+
     { type: "link", text: "Bureau Calender", href: "#/Tags" },
-    { type: "link", text: "Staff Phone List", href: "#/Newsletters" },
-    { type: "link", text: "Time Calculator", href: "#/BoardReports" },
+    { type: "link", text: "Resource Library", href: "#/Newsletters" },
+    { type: "link", text: "Add Newsfeed+Update", href: "#/BoardReports" },
     {
-        text: "Strategic Plan",
+        text: "Staff listings",
         type: "section",
         defaultExpanded: false,
         items: [
-            { type: "link", text: "Plans", href: "#/instances" },
-            { type: "link", text: "Updatable Plan", href: "#/spot_requests" }
+            { type: "link", text: "Phone", href: "#/instances" },
+            { type: "link", text: "Computer", href: "#/spot_requests" },
+            { type: "link", text: "Duties", href: "#/spot_requests" },
+            { type: "link", text: "Birthday / Anniversary", href: "#/spot_requests" },
+            { type: "link", text: "Duties", href: "#/spot_requests" },
         ]
     },
     {
-        text: "Safety Patrol",
+        text: "Logins",
         type: "section",
         defaultExpanded: false,
         items: [
-            { type: "link", text: "Saftey Patrol Programs", href: "#/amis" },
-            { type: "link", text: "Reports", href: "#/volumes" },
-            { type: "link", text: "Vouchers", href: "#/snapshots" },
-            { type: "link", text: "Update Tools", href: "#/bundle_tasks" }
-        ]
-    },
-    {
-        text: "Annual Meeting",
-        type: "section",
-        defaultExpanded: false,
-        items: [
-            { type: "link", text: "Annual Meeting List", href: "#/volumes" },
-            { type: "link", text: "Online Reservations", href: "#/snapshots" },
-            { type: "link", text: "Guest List", href: "#/volumes" },
-            { type: "link", text: "Table Assignments", href: "#/snapshots" },
-            { type: "link", text: "Tickets & Scanner", href: "#/snapshots" },
-        ]
-    },
-    {
-        text: "Committees & Boards",
-        type: "section",
-        defaultExpanded: false,
-        items: [
-            { type: "link", text: "View Board & Committees", href: "#/security_groups" },
-            { type: "link", text: "Offices and Positions", href: "#/elastic_ips" },
-            { type: "link", text: "Update Tools", href: "#/placement_groups" }
-        ]
-    },
-    {
-        text: "Elections",
-        type: "section",
-        defaultExpanded: false,
-        items: [
-            { type: "link", text: "Board Elections", href: "#/load_balancers" },
-            { type: "link", text: "General Elections", href: "#/target_groups" },
+            { type: "link", text: "Nextiva", href: "#/amis" },
+            { type: "link", text: "iDSS Cyclone", href: "#/volumes" },
+            { type: "link", text: "SmartSheets", href: "#/snapshots" },
+            { type: "link", text: "iSolved", href: "#/bundle_tasks" }
         ]
     },
     {

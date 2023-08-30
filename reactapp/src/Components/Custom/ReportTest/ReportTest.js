@@ -90,7 +90,7 @@ export default function CollectionHooksTable() {
           >
             No resources to display.
           </Box>
-          <Button>Create resource</Button>
+          <Button>Add Item</Button>
         </Box>
       }
       filter={
@@ -147,14 +147,14 @@ export default function CollectionHooksTable() {
               >
                 Actions
               </ButtonDropdown>
-              <Button>Secondary button</Button>
+              <Button>Mark Processed</Button>
               <Button variant="primary">
-                Create resource
+                Add Item
               </Button>
             </SpaceBetween>
           }
         >
-          Table with action buttons
+          Incoming Item Log
        </Header>
       }
      pagination={<Pagination {...paginationProps} ariaLabels={paginationLabels} />}

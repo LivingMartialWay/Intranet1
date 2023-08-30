@@ -35,7 +35,7 @@ export function DashboardHeader({ actions }) {
       variant="h1"
       actions={actions}
     >
-      Wisconsin Dells Visitor & Convention Bureau
+      Wisconsin Dells Visitor & Convention Bureau !!
     </Header>
   )
 }
