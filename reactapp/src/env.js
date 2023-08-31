@@ -1,3 +1,3 @@
-export default "prod";
+// export default "prod";
 
-// export default "dev";
+export default "dev";

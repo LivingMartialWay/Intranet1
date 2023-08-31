@@ -36,7 +36,7 @@ export default function CollectionHooksTable() {
 
     useEffect(
         () => {
-            fetch('https://localhost:7182/api/ReportTest')
+            fetch('https://192.168.0.21:8080/api/ReportTest')
                 .then(response => response.json())
                 .then(responseTodos => {
                     console.log(responseTodos)

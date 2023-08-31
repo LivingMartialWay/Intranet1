@@ -11,7 +11,7 @@ import { ProfileData } from './Components/ProfileData';
 import Button from 'react-bootstrap/Button';
 
 import env from './env';
-import mockUser from './Mock/user';
+import mockUser from './Mock/User';
 
 import {
     AppLayout,

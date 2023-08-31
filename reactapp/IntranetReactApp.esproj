@@ -23,5 +23,6 @@
     <Folder Include="src\Components\Widgets\zone-status\" />
     <Folder Include="src\Components\Widgets\service-health\" />
     <Folder Include="src\Components\Widgets\service-overview\" />
+    <Folder Include="src\Mock\" />
   </ItemGroup>
 </Project>
