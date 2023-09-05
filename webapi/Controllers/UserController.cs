@@ -22,6 +22,7 @@ public class UserController : ControllerBase
     public async Task<ActionResult<UserModel>> Get()
     {
         //var output = await _data.GetOneAssigned();
+        // ALSO A GITCOMMIT
 
         return Ok("output");
     }
