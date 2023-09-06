@@ -11,9 +11,13 @@ import {
     SpaceBetween,
     ButtonDropdown,
 } from "@cloudscape-design/components";
-import ReportTestCreateModal from "./ReportTestCreateModal";
 import { columnDefinitions, getMatchesCountText, paginationLabels, collectionPreferencesProps } from './ReportTestTableConfig';
 import "@cloudscape-design/global-styles/index.css"
+import { Route, Routes } from "react-router-dom"
+import ReportTestCreatePage from './ReportTestCreatePage';
+
+
+
 
 function EmptyState({ title, subtitle, action }) {
     return (
@@ -39,7 +43,6 @@ export default function CollectionHooksTable() {
             fetch('https://192.168.0.21:8080/api/ReportTest')
                 .then(response => response.json())
                 .then(responseTodos => {
-                    console.log(responseTodos)
                     setTodos(responseTodos)
                 });
         }, []);
@@ -90,7 +93,7 @@ export default function CollectionHooksTable() {
           >
             No resources to display.
           </Box>
-          <Button>Add Item</Button>
+          <Button href="/admin/ReportTest/Create">Add Item</Button>
         </Box>
       }
       filter={
@@ -148,7 +151,7 @@ export default function CollectionHooksTable() {
                 Actions
               </ButtonDropdown>
               <Button>Mark Processed</Button>
-              <Button variant="primary">
+              <Button href="ReportTest/Create" variant="primary">
                 Add Item
               </Button>
             </SpaceBetween>

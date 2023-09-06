@@ -12,3 +12,22 @@ export function Breadcrumbs({ items }: { items: BreadcrumbGroupProps['items'] })
         />
     );
 }
+
+export const resourcesBreadcrumbs = [
+    {
+        text: 'Service',
+        href: '#',
+    },
+    {
+        text: 'Distributions',
+        href: '#',
+    },
+];
+
+export const resourceCreateBreadcrumbs = [
+    ...resourcesBreadcrumbs,
+    {
+        text: 'Create distribution',
+        href: '#',
+    },
+];

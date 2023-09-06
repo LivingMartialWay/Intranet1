@@ -30,11 +30,9 @@ import { networkTraffic } from "../../Components/Widgets/network-traffic"
 import accountAttributes from "../../Components/Widgets/account-attributes"
 import featuresSpotlight from "../../Components/Widgets/features-spotlight"
 import zoneStatus from "../../Components/Widgets/zone-status"
-
-
-
 import ReportTest from "../../Components/Custom/ReportTest/ReportTest";
-
+import ReportTestCreatePage from "../../Components/Custom/ReportTest/ReportTestCreatePage"
+console.log(ReportTestCreatePage)
 
 function Content() {
     return (
@@ -72,7 +70,7 @@ function Content() {
             </Grid>} />
 
             <Route path="/ReportTest" element={<ReportTest></ReportTest>} />
-
+            <Route path="/ReportTest/Create" element={<ReportTestCreatePage></ReportTestCreatePage>} />
 
         </Routes>
     )
